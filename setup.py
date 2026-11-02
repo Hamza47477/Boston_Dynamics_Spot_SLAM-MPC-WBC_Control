@@ -37,6 +37,7 @@ setup(
             'mapper = spot_controller.perception.mapper_node:main',
             'detector = spot_controller.perception.detector_node:main',
             'tracker = spot_controller.perception.tracker_node:main',
+            'viewer = spot_controller.perception.viewer_node:main',
         ],
     },
 )
