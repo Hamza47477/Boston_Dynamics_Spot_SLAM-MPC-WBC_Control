@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+build/
+install/
+log/
+*.egg-info/
+*.swp
+# resolved worlds and run data
+/tmp/
+*.bag
+*.db3
+*.mcap
