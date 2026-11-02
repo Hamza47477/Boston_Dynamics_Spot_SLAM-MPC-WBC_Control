@@ -27,17 +27,19 @@ setup(
     entry_points={
         'console_scripts': [
             'state_estimator = spot_controller.state_estimator:main',
+            'spot_publisher = spot_controller.spot_publisher_node:main',
             'ekf_estimator = spot_controller.ekf_node:main',
             'push_test = spot_controller.push_test:main',
-            'spot_publisher = spot_controller.spot_publisher_node:main',
             'teleop = spot_controller.teleop_keyboard:main',
             'stereo_depth = spot_controller.perception.stereo_depth_node:main',
             'stereo_slam = spot_controller.perception.slam_node:main',
-            'tf_bridge = spot_controller.perception.tf_bridge_node:main',
             'mapper = spot_controller.perception.mapper_node:main',
+            'tf_bridge = spot_controller.perception.tf_bridge_node:main',
             'detector = spot_controller.perception.detector_node:main',
             'tracker = spot_controller.perception.tracker_node:main',
             'viewer = spot_controller.perception.viewer_node:main',
+            'explorer = spot_controller.perception.explorer_node:main',
+            'goto = spot_controller.perception.goto:main',
         ],
     },
 )

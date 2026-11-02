@@ -1,0 +1,89 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Fixed Frame: map
+    Frame Rate: 20
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: true
+    - Class: rviz_default_plugins/Map
+      Name: 2D map (/map)
+      Enabled: true
+      Topic: {Value: /map, Durability Policy: Transient Local, Reliability Policy: Reliable}
+      Alpha: 0.7
+    - Class: rviz_default_plugins/PointCloud2
+      Name: 3D map (occupied voxels)
+      Enabled: true
+      Topic: {Value: /map_3d}
+      Style: Boxes
+      Size (m): 0.1
+      Color Transformer: RGB8
+    - Class: rviz_default_plugins/PointCloud2
+      Name: SLAM landmarks
+      Enabled: false
+      Topic: {Value: /slam/landmarks}
+      Style: Points
+      Size (Pixels): 2
+      Color Transformer: FlatColor
+      Color: 255; 255; 0
+    - Class: rviz_default_plugins/Path
+      Name: SLAM keyframe path
+      Enabled: true
+      Topic: {Value: /slam/path}
+      Color: 255; 40; 40
+    - Class: rviz_default_plugins/MarkerArray
+      Name: Tracked objects
+      Enabled: true
+      Topic: {Value: /tracks/markers}
+    - Class: rviz_default_plugins/LaserScan
+      Name: Depth as laser scan
+      Enabled: true
+      Topic: {Value: /mapper/scan}
+      Size (m): 0.05
+      Color Transformer: FlatColor
+      Color: 0; 255; 255
+    - Class: rviz_default_plugins/Map
+      Name: Global costmap
+      Enabled: false
+      Topic: {Value: /global_costmap/costmap}
+      Color Scheme: costmap
+      Alpha: 0.5
+    - Class: rviz_default_plugins/Map
+      Name: Local costmap
+      Enabled: false
+      Topic: {Value: /local_costmap/costmap}
+      Color Scheme: costmap
+      Alpha: 0.5
+    - Class: rviz_default_plugins/Path
+      Name: Nav2 plan
+      Enabled: true
+      Topic: {Value: /plan}
+      Color: 0; 255; 255
+    - Class: rviz_default_plugins/Image
+      Name: SLAM view
+      Enabled: false
+      Topic: {Value: /slam/debug_image, Reliability Policy: Best Effort}
+    - Class: rviz_default_plugins/Image
+      Name: Detections
+      Enabled: false
+      Topic: {Value: /detections/debug_image, Reliability Policy: Best Effort}
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/SetInitialPose
+    - Class: rviz_default_plugins/SetGoal
+      Topic: {Value: /goal_pose}
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 22
+      Pitch: 1.0
+      Yaw: 0.8
+      Target Frame: base_link
