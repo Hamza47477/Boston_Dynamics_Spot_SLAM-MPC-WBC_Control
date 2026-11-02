@@ -45,7 +45,7 @@ the growing map, and rate / timing / metrics for every stage.*
 
 ```bash
 mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
-git clone https://github.com/Hamza47477/spotsense.git
+git clone https://github.com/Hamza47477/Boston_Dynamics_Spot_SLAM_MPC_WBC.git
 cd ~/ros2_ws
 source /opt/ros/jazzy/setup.bash
 colcon build --packages-select spot_controller --symlink-install
