@@ -1,0 +1,46 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/boston_dynamics/spot/protos/Spot.proto"
+
+WorldInfo {
+  basicTimeStep 8
+  info [
+    "Minimal flat world for controller testing: plain floor and Spot, no textures or obstacles."
+  ]
+  title "Spot flat test world"
+}
+Viewpoint {
+  orientation 0.1 0.2 -0.97 0.8
+  position -3.0 2.5 1.6
+}
+Background {
+  skyColor [ 0.7 0.8 0.9 ]
+}
+DirectionalLight {
+  direction -0.4 -0.3 -1
+}
+Solid {
+  translation 0 0 -0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.55 0.55 0.58
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 40 40 0.1
+      }
+    }
+  ]
+  name "floor"
+  boundingObject Box {
+    size 40 40 0.1
+  }
+}
+Spot {
+  rotation 0 0 1 1.832596
+  name "Spot"
+  controller "<extern>"
+  supervisor TRUE
+}

@@ -29,6 +29,8 @@ setup(
             'state_estimator = spot_controller.state_estimator:main',
             'ekf_estimator = spot_controller.ekf_node:main',
             'push_test = spot_controller.push_test:main',
+            'spot_publisher = spot_controller.spot_publisher_node:main',
+            'teleop = spot_controller.teleop_keyboard:main',
         ],
     },
 )

@@ -12,6 +12,8 @@
   <depend>sensor_msgs</depend>
   <depend>std_msgs</depend>
   <depend>nav_msgs</depend>
+  <depend>rosgraph_msgs</depend>
+  <depend>vision_msgs</depend>
   <depend>python3-numpy</depend>
   <exec_depend>webots_ros2_driver</exec_depend>
   <exec_depend>launch</exec_depend>
