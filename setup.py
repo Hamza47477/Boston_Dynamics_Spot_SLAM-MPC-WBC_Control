@@ -26,6 +26,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'state_estimator = spot_controller.state_estimator:main',
+            'ekf_estimator = spot_controller.ekf_node:main',
         ],
     },
 )
