@@ -107,6 +107,7 @@ shown in this overlay (1.14 m) is worse than the 3 cm of the 14-minute run in th
 
 ## Documentation
 
+* [`docs/PERCEPTION_ALGORITHMS.md`](docs/PERCEPTION_ALGORITHMS.md): every perception algorithm with its input and output shown as images
 * [`docs/STEREO_SLAM.md`](docs/STEREO_SLAM.md): architecture, each stage, tools, results and the problems found along the way
 * [`docs/LOCOMOTION_CONTROL.md`](docs/LOCOMOTION_CONTROL.md) and [`docs/MPC_WBC_Report.pdf`](docs/MPC_WBC_Report.pdf): MPC and whole-body control
 * [`docs/STATE_ESTIMATION.md`](docs/STATE_ESTIMATION.md): leg odometry and the EKF
