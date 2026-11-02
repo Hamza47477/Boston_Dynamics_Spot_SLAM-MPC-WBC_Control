@@ -1,0 +1,375 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/boston_dynamics/spot/protos/Spot.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/PlasticCrate.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/CardboardBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/traffic/protos/TrafficCone.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/obstacles/protos/OilBarrel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/pallet/protos/WoodenPalletStack.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/tools/protos/PlatformCart.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/humans/pedestrian/protos/Pedestrian.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/tesla/TeslaModel3Simple.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/vehicles/protos/citroen/CitroenCZeroSimple.proto"
+
+WorldInfo {
+  basicTimeStep 8
+  info [
+    "Mapping world for stereo SLAM: textured arena, two partition walls, props,"
+    "parked and moving cars, walking and standing pedestrians."
+  ]
+  title "Spot SLAM world"
+}
+Viewpoint {
+  orientation 0.25 0.1 -0.96 0.9
+  position -9.5 -9.0 6.5
+}
+TexturedBackground {
+  texture "factory"
+  skybox FALSE
+}
+TexturedBackgroundLight {
+  texture "factory"
+}
+# ---- floor and four distinct walls (20 x 20 m)
+Solid {
+  translation 0 0 -0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [ "@TEX@/floor.png" ]
+        }
+        roughness 1
+        metalness 0
+        textureTransform TextureTransform {
+          scale 5 5
+        }
+      }
+      geometry Box {
+        size 20.4 20.4 0.1
+      }
+    }
+  ]
+  name "floor"
+  boundingObject Box {
+    size 20.4 20.4 0.1
+  }
+}
+Solid {
+  translation 0 10.1 1.7
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [ "@TEX@/wall_north.png" ]
+        }
+        roughness 1
+        metalness 0
+        textureTransform TextureTransform {
+          scale 3 1
+        }
+      }
+      geometry Box {
+        size 20.4 0.2 3.4
+      }
+    }
+  ]
+  name "wall north"
+  boundingObject Box {
+    size 20.4 0.2 3.4
+  }
+}
+Solid {
+  translation 0 -10.1 1.7
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [ "@TEX@/wall_south.png" ]
+        }
+        roughness 1
+        metalness 0
+        textureTransform TextureTransform {
+          scale 3 1
+        }
+      }
+      geometry Box {
+        size 20.4 0.2 3.4
+      }
+    }
+  ]
+  name "wall south"
+  boundingObject Box {
+    size 20.4 0.2 3.4
+  }
+}
+Solid {
+  translation 10.1 0 1.7
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [ "@TEX@/wall_east.png" ]
+        }
+        roughness 1
+        metalness 0
+        textureTransform TextureTransform {
+          scale 3 1
+        }
+      }
+      geometry Box {
+        size 0.2 20.4 3.4
+      }
+    }
+  ]
+  name "wall east"
+  boundingObject Box {
+    size 0.2 20.4 3.4
+  }
+}
+Solid {
+  translation -10.1 0 1.7
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [ "@TEX@/wall_west.png" ]
+        }
+        roughness 1
+        metalness 0
+        textureTransform TextureTransform {
+          scale 3 1
+        }
+      }
+      geometry Box {
+        size 0.2 20.4 3.4
+      }
+    }
+  ]
+  name "wall west"
+  boundingObject Box {
+    size 0.2 20.4 3.4
+  }
+}
+
+# ---- partition walls (corridor between them)
+Solid {
+  translation -2 -3.5 1.25
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [ "@TEX@/partition_a.png" ]
+        }
+        roughness 1
+        metalness 0
+        textureTransform TextureTransform {
+          scale 2 1
+        }
+      }
+      geometry Box {
+        size 0.15 9 2.5
+      }
+    }
+  ]
+  name "partition A"
+  boundingObject Box {
+    size 0.15 9 2.5
+  }
+}
+Solid {
+  translation 5 2 1.25
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [ "@TEX@/partition_b.png" ]
+        }
+        roughness 1
+        metalness 0
+        textureTransform TextureTransform {
+          scale 2 1
+        }
+      }
+      geometry Box {
+        size 6 0.15 2.5
+      }
+    }
+  ]
+  name "partition B"
+  boundingObject Box {
+    size 6 0.15 2.5
+  }
+}
+
+# ---- props (feature-rich, static)
+WoodenBox {
+  translation -6.5 -2.0 0.3
+  rotation 0 0 1 0.3
+  name "box 1"
+}
+WoodenBox {
+  translation -6.2 -2.9 0.3
+  rotation 0 0 1 -0.2
+  name "box 2"
+}
+WoodenBox {
+  translation -6.4 -2.4 0.9
+  rotation 0 0 1 0.1
+  name "box 3"
+}
+PlasticCrate {
+  translation -6.2 -8.4 0
+  rotation 0 0 1 0.5
+  name "crate 1"
+}
+PlasticCrate {
+  translation -0.6 -6.2 0
+  rotation 0 0 1 -0.4
+  name "crate 2"
+}
+CardboardBox {
+  translation 2.0 -2.0 0.15
+  rotation 0 0 1 0.3
+  name "cardboard 1"
+}
+CardboardBox {
+  translation 3.1 -1.4 0.15
+  rotation 0 0 1 -0.5
+  name "cardboard 2"
+}
+WoodenPalletStack {
+  translation -8.2 3.4 0
+  rotation 0 0 1 0.6
+  name "pallets 1"
+}
+WoodenPalletStack {
+  translation 8.2 -1.0 0
+  rotation 0 0 1 1.5
+  name "pallets 2"
+}
+PlatformCart {
+  translation 0.0 5.2 0
+  rotation 0 0 1 0.4
+  name "cart 1"
+}
+OilBarrel {
+  translation 7.8 5.5 0.44
+  name "barrel 1"
+}
+OilBarrel {
+  translation 7.1 6.1 0.44
+  name "barrel 2"
+}
+OilBarrel {
+  translation -3.5 7.8 0.44
+  name "barrel 3"
+}
+TrafficCone {
+  translation 1.0 -4.6 0
+  name "cone 1"
+}
+TrafficCone {
+  translation 1.6 -4.9 0
+  name "cone 2"
+}
+TrafficCone {
+  translation -8.5 -7.5 0
+  name "cone 3"
+}
+TrafficCone {
+  translation 4.8 7.9 0
+  name "cone 4"
+}
+
+# ---- cars (kinematic models: the plugin moves CAR_MOVING)
+DEF CAR_PARKED_1 TeslaModel3Simple {
+  translation 5.0 -7.0 0.4
+  rotation 0 0 1 0.15
+  color 0.75 0.1 0.1
+  name "car parked 1"
+}
+DEF CAR_PARKED_2 CitroenCZeroSimple {
+  translation -6.0 6.0 0.4
+  rotation 0 0 1 1.0
+  color 0.1 0.25 0.7
+  name "car parked 2"
+}
+DEF CAR_MOVING TeslaModel3Simple {
+  translation 8.0 -8.0 0.4
+  rotation 0 0 1 1.5708
+  color 0.85 0.85 0.85
+  name "car moving"
+}
+
+# ---- people
+DEF PED_1 Pedestrian {
+  translation -5.0 -4.0 1.27
+  name "pedestrian 1"
+  shirtColor 0.8 0.2 0.2
+  controllerArgs [
+    "--trajectory=-5 -4, -5 3"
+    "--speed=0.9"
+  ]
+}
+DEF PED_2 Pedestrian {
+  translation 0.5 0.5 1.27
+  name "pedestrian 2"
+  shirtColor 0.2 0.3 0.8
+  controllerArgs [
+    "--trajectory=0.5 0.5, 7 0.5, 7 -4, 0.5 -4"
+    "--speed=1.0"
+  ]
+}
+DEF PED_3 Pedestrian {
+  translation 4.0 5.0 1.27
+  rotation 0 0 1 2.4
+  name "pedestrian 3"
+  shirtColor 0.2 0.6 0.3
+}
+
+# ---- Spot with a rectified stereo pair (12 cm baseline) and a hidden depth sensor
+# The extension frame is rotated; the Pose below undoes that so that children use the
+# body frame (x forward, y left, z up). All three sensors look straight ahead.
+Spot {
+  translation -7 -6.5 0.624
+  rotation 0 0 1 0.5
+  name "Spot"
+  controller "<extern>"
+  supervisor TRUE
+  frontExtension [
+    Pose {
+      rotation 0.577350 -0.577354 -0.577346 -2.094389
+      children [
+        Camera {
+          translation 0.30 0.06 0.08
+          name "stereo_left"
+          width 512
+          height 288
+          fieldOfView 1.396
+          near 0.1
+        }
+        Camera {
+          translation 0.30 -0.06 0.08
+          name "stereo_right"
+          width 512
+          height 288
+          fieldOfView 1.396
+          near 0.1
+        }
+        RangeFinder {
+          translation 0.30 0.06 0.08
+          name "stereo_depth_gt"
+          width 512
+          height 288
+          fieldOfView 1.396
+          minRange 0.1
+          maxRange 20
+        }
+      ]
+    }
+  ]
+}
