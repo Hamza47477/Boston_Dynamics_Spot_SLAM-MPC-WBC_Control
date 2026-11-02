@@ -32,6 +32,8 @@ setup(
             'spot_publisher = spot_controller.spot_publisher_node:main',
             'teleop = spot_controller.teleop_keyboard:main',
             'stereo_depth = spot_controller.perception.stereo_depth_node:main',
+            'stereo_slam = spot_controller.perception.slam_node:main',
+            'tf_bridge = spot_controller.perception.tf_bridge_node:main',
         ],
     },
 )
