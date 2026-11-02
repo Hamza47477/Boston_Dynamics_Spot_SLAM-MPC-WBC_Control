@@ -31,6 +31,7 @@ setup(
             'push_test = spot_controller.push_test:main',
             'spot_publisher = spot_controller.spot_publisher_node:main',
             'teleop = spot_controller.teleop_keyboard:main',
+            'stereo_depth = spot_controller.perception.stereo_depth_node:main',
         ],
     },
 )
